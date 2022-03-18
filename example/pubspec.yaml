@@ -1,0 +1,19 @@
+name: realtime_ranking_example
+description: Demonstrates how to use the realtime_ranking plugin.
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  realtime_ranking:
+    path: ../
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
