@@ -4,3 +4,4 @@ export 'src/realtime_ranking.dart';
 export 'src/realtime_ranking_button.dart';
 export 'src/realtime_ranking_header.dart';
 export 'src/realtime_ranking_item.dart';
+export 'src/realtime_ranking_page_view.dart';
