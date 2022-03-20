@@ -1,0 +1,25 @@
+name: realtime_ranking
+description: Real-time ranking UI
+version: 1.0.0
+homepage: https://github.com/gasigogi0611/realtime_ranking
+
+environment:
+  sdk: ">=2.13.0 <3.0.0"
+  flutter: ">=2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: net.realtime_ranking
+        pluginClass: RealtimeRankingPlugin
+      ios:
+        pluginClass: RealtimeRankingPlugin
