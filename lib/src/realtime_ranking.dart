@@ -3,6 +3,79 @@ import 'package:realtime_ranking/src/realtime_ranking_header.dart';
 import 'package:realtime_ranking/src/realtime_ranking_item.dart';
 import 'package:realtime_ranking/src/realtime_ranking_page_view.dart';
 
+/// [RealtimeRanking]
+///
+/// RealtimeRanking(
+///   header: RealtimeRankingNormalHeader(
+///     item: RealtimeRankingNormalItem(
+///       title: 'Hello.',
+///       subtitle: '2022. 03. 20.',
+///     ),
+///     onTap: () {
+///       print('Header Select!!');
+///     },
+///   ),
+///   animatedHeaders: List.generate(
+///     15,
+///     (index) {
+///     final RealtimeRankingIndexItem item = RealtimeRankingIndexItem(
+///       title: 'Ranking',
+///       index: index + 1,
+///     );
+///     return RealtimeRankingIndexHeader(
+///         item: item,
+///         onTap: () {
+///           print('${item.index}. ${item.title} Select!!');
+///         },
+///       );
+///     },
+///   ),
+///   keepAlive: true,
+///   isSelected: _isExpanded,
+///   trailing: RealtimeRankingIconButton(
+///     isSelected: _isExpanded,
+///     animated: true,
+///     onTap: () {
+///       setState(() {
+///         _isExpanded = !_isExpanded;
+///       });
+///     },
+///   ),
+/// )
+///
+/// [RealtimeRanking.custom]
+///
+/// RealtimeRanking.custom(
+///   header: GestureDetector(
+///     onTap: () {
+///       print('Header Select!!');
+///     },
+///     child: Container(
+///       color: Colors.red,
+///     ),
+///   ),
+///   animatedHeaders: [
+///     Container(
+///       color: Colors.blue,
+///     ),
+///     Container(
+///       color: Colors.black,
+///     ),
+///   ],
+///   keepAlive: true,
+///   isSelected: _isExpanded,
+///   trailing: RealtimeRankingIconButton(
+///     isSelected: _isExpanded,
+///     animated: true,
+///     onTap: () {
+///       setState(() {
+///         _isExpanded = !_isExpanded;
+///       });
+///     },
+///   ),
+/// ),
+///
+
 class RealtimeRanking extends StatelessWidget {
   final RealtimeRankingBaseHeader header;
   final List<RealtimeRankingBaseHeader> animatedHeaders;
