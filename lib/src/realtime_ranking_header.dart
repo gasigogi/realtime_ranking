@@ -323,6 +323,7 @@ class RealtimeRankingNormalHeader extends RealtimeRankingBaseHeader<RealtimeRank
       height: height,
       padding: contentPadding,
       alignment: Alignment.centerLeft,
+      color: Theme.of(context).backgroundColor,
       child: child,
     );
 
@@ -377,6 +378,7 @@ class RealtimeRankingIndexHeader extends RealtimeRankingBaseHeader<RealtimeRanki
     Widget child = Container(
       height: height,
       padding: contentPadding,
+      color: Theme.of(context).backgroundColor,
       child: Row(
         children: [
           Text(
@@ -445,6 +447,7 @@ class RealtimeRankingWidgetHeader extends RealtimeRankingBaseHeader<RealtimeRank
     Widget child = Container(
       height: height,
       padding: contentPadding,
+      color: Theme.of(context).backgroundColor,
       child: item.child,
     );
 
