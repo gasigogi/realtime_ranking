@@ -76,6 +76,7 @@ import 'package:realtime_ranking/src/realtime_ranking_page_view.dart';
 /// ),
 ///
 
+/// TODO: 설명
 class RealtimeRanking extends StatelessWidget {
   final RealtimeRankingBaseHeader header;
   final List<RealtimeRankingBaseHeader> animatedHeaders;

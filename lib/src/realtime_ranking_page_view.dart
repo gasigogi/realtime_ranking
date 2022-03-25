@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 const kRealtimeRankingItemHeight = 40.0;
 
+/// TODO: 설명
 class RealtimeRankingPageView extends StatelessWidget {
   final PageController? pageController;
   final ScrollPhysics? physics;

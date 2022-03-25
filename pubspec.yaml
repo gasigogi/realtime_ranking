@@ -1,5 +1,5 @@
 name: realtime_ranking
-description: Real-time ranking UI
+description: Real-time ranking UI # 설명 추가 60 ~ 180 글자
 version: 1.0.1
 homepage: https://github.com/gasigogi0611/realtime_ranking
 
