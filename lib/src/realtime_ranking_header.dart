@@ -54,7 +54,8 @@ class RealtimeRankingHeader extends StatelessWidget {
                 if (trailing != null)
                   ConstrainedBox(
                     constraints: BoxConstraints(
-                      minWidth: min(height, kDefaultRealtimeRankingHeaderHeight),
+                      minWidth:
+                          min(height, kDefaultRealtimeRankingHeaderHeight),
                       minHeight: height,
                     ),
                     child: trailing!,
@@ -100,16 +101,20 @@ class RealtimeRankingAnimatedHeader extends StatefulWidget {
         super(key: key);
 
   @override
-  _RealtimeRankingAnimatedHeaderState createState() => _RealtimeRankingAnimatedHeaderState();
+  _RealtimeRankingAnimatedHeaderState createState() =>
+      _RealtimeRankingAnimatedHeaderState();
 }
 
-class _RealtimeRankingAnimatedHeaderState extends State<RealtimeRankingAnimatedHeader> {
+class _RealtimeRankingAnimatedHeaderState
+    extends State<RealtimeRankingAnimatedHeader> {
   late int _start = 0;
   int get _end => max(0, min(widget.maxCount, widget.children.length) - 1);
   int get _current => min(_start, _end);
 
   RealtimeRankingAlignment _alignment = RealtimeRankingAlignment.bottom;
-  Duration get _duration => _alignment == RealtimeRankingAlignment.bottom ? Duration(microseconds: 1) : widget.duration;
+  Duration get _duration => _alignment == RealtimeRankingAlignment.bottom
+      ? Duration(microseconds: 1)
+      : widget.duration;
 
   Timer? _timer;
   late double _opacity;
@@ -128,9 +133,12 @@ class _RealtimeRankingAnimatedHeaderState extends State<RealtimeRankingAnimatedH
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       if (widget.animated) {
         _disposeTimer();
-        _timer = Timer.periodic(Duration(milliseconds: widget.duration.inMilliseconds * 4), (timer) {
+        _timer = Timer.periodic(
+            Duration(milliseconds: widget.duration.inMilliseconds * 4),
+            (timer) {
           timer.cancel();
-          _updateAlignment(RealtimeRankingAlignment.top, markNeedSetState: true);
+          _updateAlignment(RealtimeRankingAlignment.top,
+              markNeedSetState: true);
         });
       }
     });
@@ -203,24 +211,32 @@ class _RealtimeRankingAnimatedHeaderState extends State<RealtimeRankingAnimatedH
           AnimatedPositioned(
             left: 0,
             right: 0,
-            bottom: _alignment == RealtimeRankingAlignment.bottom ? -widget.height : _offsetY,
+            bottom: _alignment == RealtimeRankingAlignment.bottom
+                ? -widget.height
+                : _offsetY,
             duration: _duration,
             curve: widget.curve,
             onEnd: () async {
               switch (_alignment) {
                 case RealtimeRankingAlignment.top:
                   _next();
-                  _updateAlignment(RealtimeRankingAlignment.bottom, markNeedSetState: true);
+                  _updateAlignment(RealtimeRankingAlignment.bottom,
+                      markNeedSetState: true);
                   break;
                 case RealtimeRankingAlignment.center:
                   _disposeTimer();
-                  _timer = Timer.periodic(Duration(milliseconds: widget.duration.inMilliseconds * 4), (timer) {
+                  _timer = Timer.periodic(
+                      Duration(
+                          milliseconds: widget.duration.inMilliseconds * 4),
+                      (timer) {
                     timer.cancel();
-                    _updateAlignment(RealtimeRankingAlignment.top, markNeedSetState: true);
+                    _updateAlignment(RealtimeRankingAlignment.top,
+                        markNeedSetState: true);
                   });
                   break;
                 case RealtimeRankingAlignment.bottom:
-                  _updateAlignment(RealtimeRankingAlignment.center, markNeedSetState: true);
+                  _updateAlignment(RealtimeRankingAlignment.center,
+                      markNeedSetState: true);
                   break;
               }
             },
@@ -236,7 +252,8 @@ class _RealtimeRankingAnimatedHeaderState extends State<RealtimeRankingAnimatedH
   }
 }
 
-abstract class RealtimeRankingBaseHeader<T extends RealtimeRankingItem> extends StatelessWidget {
+abstract class RealtimeRankingBaseHeader<T extends RealtimeRankingItem>
+    extends StatelessWidget {
   final T item;
   final double height;
   final EdgeInsetsGeometry contentPadding;
@@ -249,11 +266,13 @@ abstract class RealtimeRankingBaseHeader<T extends RealtimeRankingItem> extends 
     EdgeInsetsGeometry? contentPadding,
     this.onTap,
   })  : height = height ?? kDefaultRealtimeRankingHeaderHeight,
-        contentPadding = contentPadding ?? const EdgeInsets.symmetric(horizontal: 12.0),
+        contentPadding =
+            contentPadding ?? const EdgeInsets.symmetric(horizontal: 12.0),
         super(key: key);
 }
 
-class RealtimeRankingNormalHeader extends RealtimeRankingBaseHeader<RealtimeRankingNormalItem> {
+class RealtimeRankingNormalHeader
+    extends RealtimeRankingBaseHeader<RealtimeRankingNormalItem> {
   RealtimeRankingNormalHeader({
     Key? key,
     required RealtimeRankingNormalItem item,
@@ -289,11 +308,12 @@ class RealtimeRankingNormalHeader extends RealtimeRankingBaseHeader<RealtimeRank
     );
 
     if (item.subtitle != null) {
-      final TextStyle subtitleTextStyle = Theme.of(context).textTheme.labelMedium ??
-          TextStyle(
-            fontSize: 10.0,
-            color: Colors.grey,
-          );
+      final TextStyle subtitleTextStyle =
+          Theme.of(context).textTheme.labelMedium ??
+              TextStyle(
+                fontSize: 10.0,
+                color: Colors.grey,
+              );
 
       child = Column(
         mainAxisSize: MainAxisSize.min,
@@ -335,7 +355,10 @@ class RealtimeRankingNormalHeader extends RealtimeRankingBaseHeader<RealtimeRank
     }
 
     return Semantics(
-      label: [item.title, if (item.subtitle != null && item.subtitle!.isNotEmpty) item.subtitle].join(' '),
+      label: [
+        item.title,
+        if (item.subtitle != null && item.subtitle!.isNotEmpty) item.subtitle
+      ].join(' '),
       excludeSemantics: true,
       button: onTap != null,
       enabled: true,
@@ -344,7 +367,8 @@ class RealtimeRankingNormalHeader extends RealtimeRankingBaseHeader<RealtimeRank
   }
 }
 
-class RealtimeRankingIndexHeader extends RealtimeRankingBaseHeader<RealtimeRankingIndexItem> {
+class RealtimeRankingIndexHeader
+    extends RealtimeRankingBaseHeader<RealtimeRankingIndexItem> {
   RealtimeRankingIndexHeader({
     Key? key,
     required RealtimeRankingIndexItem item,
@@ -427,7 +451,8 @@ class RealtimeRankingIndexHeader extends RealtimeRankingBaseHeader<RealtimeRanki
   }
 }
 
-class RealtimeRankingWidgetHeader extends RealtimeRankingBaseHeader<RealtimeRankingWidgetItem> {
+class RealtimeRankingWidgetHeader
+    extends RealtimeRankingBaseHeader<RealtimeRankingWidgetItem> {
   RealtimeRankingWidgetHeader({
     Key? key,
     required RealtimeRankingWidgetItem item,

@@ -35,7 +35,8 @@ class _MyAppState extends State<MyApp> {
               animatedHeaders: List.generate(
                 15,
                 (index) {
-                  final RealtimeRankingIndexItem item = RealtimeRankingIndexItem(
+                  final RealtimeRankingIndexItem item =
+                      RealtimeRankingIndexItem(
                     title: 'Ranking',
                     index: index + 1,
                   );
